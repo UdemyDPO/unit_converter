@@ -2,221 +2,183 @@ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Bone Game</title>
-  <style>
-    /* Basic Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f8ff;
-      font-family: Arial, sans-serif;
-    }
-
-    #game-container {
-      position: relative;
-      width: 600px;
-      height: 400px;
-      border: 5px solid brown;
-      background-color: #d4f4a4;
-      overflow: hidden;
-    }
-
-    .dog, .bone, .mailman, .fence {
-      position: absolute;
-    }
-
-    .dog {
-      width: 40px;
-      height: 40px;
-      background: url('https://i.imgur.com/rlmgEoB.png') center/contain no-repeat; /* Dog icon */
-    }
-
-    .bone {
-      width: 25px;
-      height: 25px;
-      background: url('https://i.imgur.com/TohpT2A.png') center/contain no-repeat; /* Bone icon */
-    }
-
-    .mailman {
-      width: 40px;
-      height: 40px;
-      background: url('https://i.imgur.com/SgqdJfu.png') center/contain no-repeat; /* Mailman icon */
-    }
-
-    .fence {
-      background-color: brown;
-      z-index: 10;
-    }
-
-    #scoreboard {
-      margin-top: 10px;
-      font-size: 18px;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Bone Game</title>
+  <style>
+    /* Basic Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+    }
+    #game-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      border: 5px solid brown;
+      background-color: #d4f4a4;
+      overflow: hidden;
+    }
+    .dog, .bone, .mailman, .fence {
+      position: absolute;
+    }
+    /* Dog character */
+    .dog {
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn.pixabay.com/photo/2013/07/13/12/38/puppy-160564_1280.png') center/contain no-repeat;
+    }
+    /* Bone to collect */
+    .bone {
+      width: 25px;
+      height: 25px;
+      background: url('https://cdn.pixabay.com/photo/2012/04/12/19/07/bone-30930_1280.png') center/contain no-repeat;
+    }
+    /* Mailman character */
+    .mailman {
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn.pixabay.com/photo/2021/09/01/17/25/mailman-6590112_1280.png') center/contain no-repeat;
+    }
+    .fence {
+      background-color: brown;
+      z-index: 10;
+    }
+    #scoreboard {
+      margin-top: 10px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <div id="game-container">
-    <div class="dog" id="dog"></div>
-    <div class="bone" id="bone"></div>
-    <div class="mailman" id="mailman1"></div>
-    <div class="mailman" id="mailman2"></div>
-
-    <!-- Static fences -->
-    <div class="fence" style="top: 100px; left: 200px; width: 200px; height: 20px;"></div>
-    <div class="fence" style="top: 300px; left: 100px; width: 300px; height: 20px;"></div>
-  </div>
-
-  <div id="scoreboard">
-    <p>Time Left: <span id="time">30</span> seconds</p>
-    <p>Bones Collected: <span id="score">0</span></p>
-  </div>
-
-  <script>
-    // Game Elements
-    const dog = document.getElementById('dog');
-    const bone = document.getElementById('bone');
-    const mailman1 = document.getElementById('mailman1');
-    const mailman2 = document.getElementById('mailman2');
-    const fences = document.getElementsByClassName('fence');
-    const scoreboard = document.getElementById('score');
-    const timeLeft = document.getElementById('time');
-
-    // Game Variables
-    let score = 0;
-    let time = 30;
-    const gameWidth = 600;
-    const gameHeight = 400;
-
-    // Helper Functions
-    function randomPosition(width, height) {
-      return {
-        x: Math.floor(Math.random() * (gameWidth - width)),
-        y: Math.floor(Math.random() * (gameHeight - height))
-      };
-    }
-
-    function moveElement(element, x, y) {
-      element.style.left = ${x}px;
-      element.style.top = ${y}px;
-    }
-
-    function checkCollision(el1, el2) {
-      const rect1 = el1.getBoundingClientRect();
-      const rect2 = el2.getBoundingClientRect();
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
-    }
-
-    // Initialize Game Elements
-    function resetBonePosition() {
-      const pos = randomPosition(25, 25);
-      moveElement(bone, pos.x, pos.y);
-    }
-
-    function resetMailmanPosition(mailman) {
-      const pos = randomPosition(40, 40);
-      moveElement(mailman, pos.x, pos.y);
-    }
-
-    function resetPositions() {
-      moveElement(dog, 50, 50);
-      resetBonePosition();
-      resetMailmanPosition(mailman1);
-      resetMailmanPosition(mailman2);
-    }
-
-    resetPositions();
-
-    // Game Logic
-    document.addEventListener('keydown', (e) => {
-
-(503 B)
-https://i.imgur.com/rlmgEoB.png
-
-
-
-(503 B)
-https://i.imgur.com/TohpT2A.png
-
-
-
-(503 B)
-https://i.imgur.com/SgqdJfu.png
-
-
-11:08
-const step = 15; // Movement step size
-      const dogRect = dog.getBoundingClientRect();
-      const containerRect = document.getElementById('game-container').getBoundingClientRect();
-      let x = dog.offsetLeft;
-      let y = dog.offsetTop;
-
-      switch (e.key) {
-        case 'ArrowUp':
-          if (y - step >= 0) y -= step;
-          break;
-        case 'ArrowDown':
-          if (y + step + dogRect.height <= containerRect.height) y += step;
-          break;
-        case 'ArrowLeft':
-          if (x - step >= 0) x -= step;
-          break;
-        case 'ArrowRight':
-          if (x + step + dogRect.width <= containerRect.width) x += step;
-          break;
-      }
-
-      // Prevent passing through fences
-      for (const fence of fences) {
-        if (checkCollision(dog, fence)) {
-          return; // Prevent movement if collision occurs
-        }
-      }
-
-      moveElement(dog, x, y);
-
-      // Check collision with the bone
-      if (checkCollision(dog, bone)) {
-        score++;
-        scoreboard.textContent = score;
-        resetBonePosition();
-      }
-
-      // Check collision with mailmen
-      if (checkCollision(dog, mailman1) || checkCollision(dog, mailman2)) {
-        alert('Game Over! The dog was caught by a mailman.');
-        resetPositions();
-        clearInterval(gameInterval);
-      }
-    });
-
-    // Move mailmen randomly
-    setInterval(() => {
-      resetMailmanPosition(mailman1);
-      resetMailmanPosition(mailman2);
-    }, 1500);
-
-    // Countdown Timer
-    const gameInterval = setInterval(() => {
-      time--;
-      timeLeft.textContent = time;
-      if (time === 0) {
-        alert(Time's up! You collected ${score} bones.);
-        clearInterval(gameInterval);
-        resetPositions();
-      }
-    }, 1000);
-  </script>
+  <div id="game-container">
+    <div class="dog" id="dog"></div>
+    <div class="bone" id="bone"></div>
+    <div class="mailman" id="mailman1"></div>
+    <div class="mailman" id="mailman2"></div>
+    <!-- Static fences -->
+    <div class="fence" style="top: 100px; left: 200px; width: 200px; height: 20px;"></div>
+    <div class="fence" style="top: 300px; left: 100px; width: 300px; height: 20px;"></div>
+  </div>
+  <div id="scoreboard">
+    <p>Time Left: <span id="time">30</span> seconds</p>
+    <p>Bones Collected: <span id="score">0</span></p>
+  </div>
+  <script>
+    // Game Elements
+    const dog = document.getElementById('dog');
+    const bone = document.getElementById('bone');
+    const mailman1 = document.getElementById('mailman1');
+    const mailman2 = document.getElementById('mailman2');
+    const fences = document.getElementsByClassName('fence');
+    const scoreboard = document.getElementById('score');
+    const timeLeft = document.getElementById('time');
+    // Game Variables
+    let score = 0;
+    let time = 30;
+    const gameWidth = 600;
+    const gameHeight = 400;
+    // Helper Functions
+    function randomPosition(width, height) {
+      return {
+        x: Math.floor(Math.random() * (gameWidth - width)),
+        y: Math.floor(Math.random() * (gameHeight - height))
+      };
+    }
+    function moveElement(element, x, y) {
+      element.style.left = ${x}px;
+      element.style.top = ${y}px;
+    }
+    function checkCollision(el1, el2) {
+      const rect1 = el1.getBoundingClientRect();
+      const rect2 = el2.getBoundingClientRect();
+      return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+    }
+    // Initialize Game Elements
+    function resetBonePosition() {
+      const pos = randomPosition(25, 25);
+      moveElement(bone, pos.x, pos.y);
+    }
+    function resetMailmanPosition(mailman) {
+      const pos = randomPosition(40, 40);
+      moveElement(mailman, pos.x, pos.y);
+    }
+    function resetPositions() {
+      moveElement(dog, 50, 50);
+      resetBonePosition();
+      resetMailmanPosition(mailman1);
+      resetMailmanPosition(mailman2);
+    }
+    resetPositions();
+11:25
+// Game Logic
+    document.addEventListener('keydown', (e) => {
+      const step = 15; // Movement step size
+      const dogRect = dog.getBoundingClientRect();
+      const containerRect = document.getElementById('game-container').getBoundingClientRect();
+      let x = dog.offsetLeft;
+      let y = dog.offsetTop;
+      switch (e.key) {
+        case 'ArrowUp':
+          if (y - step >= 0) y -= step;
+          break;
+        case 'ArrowDown':
+          if (y + step + dogRect.height <= containerRect.height) y += step;
+          break;
+        case 'ArrowLeft':
+          if (x - step >= 0) x -= step;
+          break;
+        case 'ArrowRight':
+          if (x + step + dogRect.width <= containerRect.width) x += step;
+          break;
+      }
+      // Prevent passing through fences
+      for (const fence of fences) {
+        if (checkCollision(dog, fence)) {
+          return; // Prevent movement if collision occurs
+        }
+      }
+      moveElement(dog, x, y);
+      // Check collision with the bone
+      if (checkCollision(dog, bone)) {
+        score++;
+        scoreboard.textContent = score;
+        resetBonePosition();
+      }
+      // Check collision with mailmen
+      if (checkCollision(dog, mailman1) || checkCollision(dog, mailman2)) {
+        alert('Game Over! The dog was caught by a mailman.');
+        resetPositions();
+        clearInterval(gameInterval);
+      }
+    });
+    // Move mailmen randomly
+    setInterval(() => {
+      resetMailmanPosition(mailman1);
+      resetMailmanPosition(mailman2);
+    }, 1500);
+    // Countdown Timer
+    const gameInterval = setInterval(() => {
+      time--;
+      timeLeft.textContent = time;
+      if (time === 0) {
+        alert(Time's up! You collected ${score} bones.);
+        clearInterval(gameInterval);
+        resetPositions();
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
