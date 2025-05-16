@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #c7c8c9; -webkit-text-stroke: #c7c8c9; background-color: #e2e2e2; background-color: rgba(226, 226, 226, 0.039)}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #c7c8c9; -webkit-text-stroke: #c7c8c9; background-color: #e2e2e2; background-color: rgba(226, 226, 226, 0.039); min-height: 16.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">html</span></p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Unit Converter - Length&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 40px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;🌟 Unit Converter for Length&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="mb-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;label for="inputValue" class="form-label"&gt;Enter Value&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="inputValue" class="form-control" placeholder="Enter a value" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="mb-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;label for="inputUnit" class="form-label"&gt;From Unit&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="inputUnit" class="form-select"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- Options dynamically added in JavaScript --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="mb-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;label for="outputUnit" class="form-label"&gt;To Unit&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="outputUnit" class="form-select"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- Options dynamically added in JavaScript --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="btn btn-primary" id="convertButton"&gt;Convert&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p id="result" class="mt-4"&gt;&lt;strong&gt;Converted Value:&lt;/strong&gt; &lt;span id="convertedValue"&gt;--&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Conversion Factors (relative to meters)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const units = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Nanometers (nm)": 1e-9,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Micrometers (µm)": 1e-6,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Millimeters (mm)": 1e-3,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Centimeters (cm)": 1e-2,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Meters (m)": 1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Kilometers (km)": 1e3,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Inches (in)": 0.0254,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Feet (ft)": 0.3048,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Yards (yd)": 0.9144,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Miles (mi)": 1609.34,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Light-Years (ly)": 9.4607e15,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Populate dropdowns</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function populateUnits() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const inputSelect = document.getElementById("inputUnit");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const outputSelect = document.getElementById("outputUnit");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>Object.keys(units).forEach(unit =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const option = `&lt;option value="${units[unit]}"&gt;${unit}&lt;/option&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>inputSelect.innerHTML += option;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>outputSelect.innerHTML += option;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Convert units</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function convertUnits() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const inputValue = parseFloat(document.getElementById("inputValue").value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const inputUnitFactor = parseFloat(document.getElementById("inputUnit").value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const outputUnitFactor = parseFloat(document.getElementById("outputUnit").value);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (isNaN(inputValue)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("convertedValue").textContent = "⚠️ Please enter a valid number!";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const inMeters = inputValue * inputUnitFactor; // Convert to meters</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const convertedValue = inMeters / outputUnitFactor; // Convert to target unit</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById("convertedValue").textContent = convertedValue.toLocaleString() + ` ${document.getElementById('outputUnit').selectedOptions[0].textContent}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Events</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("convertButton").addEventListener("click", convertUnits);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Initialize dropdowns</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>populateUnits();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
